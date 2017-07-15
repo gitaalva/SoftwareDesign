@@ -32,6 +32,7 @@ Array<T>::Array (size_t size,
 template <typename T> 
 Array<T>::Array (const Array<T> &s) : cur_size_(s.size()), max_size_(s.size()), array_(new T[s.size()])
 {
+	if (s.default_value_) default_value_.reset (new T(s.default_value_));
 	std::copy (s.begin(),s.end(),array_.get());
 }
 

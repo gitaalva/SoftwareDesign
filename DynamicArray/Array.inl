@@ -156,6 +156,6 @@ Const_Array_Iterator<T>::operator== (const Const_Array_Iterator<T> &rhs) const
 template <typename T> INLINE bool
 Const_Array_Iterator<T>::operator!= (const Const_Array_Iterator<T> &rhs) const
 {
-	return pos_ != rhs.pos_ ;
+	return pos_ != rhs.pos_ && &array_ == &rhs.array_ ;
 }
 
