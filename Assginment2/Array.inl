@@ -101,13 +101,13 @@ Array_Iterator<T>::operator-- (int)
 template <typename T> INLINE bool
 Array_Iterator<T>::operator== (const Array_Iterator<T> &rhs) const
 {
-	return pos_ == rhs.pos_ && array_ == rhs.array_;
+	return pos_ == rhs.pos_;
 }
 
 template <typename T> INLINE bool
 Array_Iterator<T>::operator!= (const Array_Iterator<T> &rhs) const
 {
-	return !(pos_ == rhs.pos_ && array_ == rhs.array_);
+	return pos_ != rhs.pos_ ;
 }
 
 template <typename T> INLINE const T &
@@ -150,12 +150,12 @@ Const_Array_Iterator<T>::operator-- (int) const
 template <typename T> INLINE bool
 Const_Array_Iterator<T>::operator== (const Const_Array_Iterator<T> &rhs) const
 {
-	return pos_ == rhs.pos_ && array_ == rhs.array_;
+	return pos_ == rhs.pos_;
 }
 
 template <typename T> INLINE bool
 Const_Array_Iterator<T>::operator!= (const Const_Array_Iterator<T> &rhs) const
 {
-	return !(pos_ == rhs.pos_ && array_ == rhs.array_);
+	return pos_ != rhs.pos_ ;
 }
 
