@@ -54,6 +54,7 @@ Array<T>::resize (size_t new_size)
 			if (default_value_.get())
 				std::fill (new_array.get()+cur_size_,new_array.get()+new_size, *default_value_.get());
 			array_.swap (new_array);
+			cur_size_ = max_size_ = new_size;
 		}
 	}
 }

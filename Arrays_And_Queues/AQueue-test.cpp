@@ -1,3 +1,4 @@
+
 /* -*- C++ -*- */
 
 // Use a Queue to print a name.
@@ -257,8 +258,9 @@ main (int argc, char *argv[])
   AQUEUE **queues = new AQUEUE *[4];
 
   testConstructors (queues);
+  
   testDequeue (queues);
-
+  
   std::cout << "Adding an s to the 3rd and 4th queues.\n";
 
   queues[COPY_CAR]->enqueue ('s');
@@ -277,7 +279,7 @@ main (int argc, char *argv[])
 
   // you can comment out the following trycatch block to isolate
   // problems to the above tests (constructors, dequeues, and iterators).
-
+  
   try
     {
       const int MAX_NAME_LEN = 80;
@@ -469,6 +471,6 @@ main (int argc, char *argv[])
     {
       std::cerr << "allocation failed" << std::endl;
     }
-
+   
   return 0;     
 }

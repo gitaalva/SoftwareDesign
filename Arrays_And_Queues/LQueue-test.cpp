@@ -1,3 +1,5 @@
+
+
 /* -*- C++ -*- */
 
 // Use a Queue to print a name.
@@ -259,6 +261,7 @@ main (int argc, char *argv[])
   LQUEUE ** queues = new LQUEUE *[4];
 
   testConstructors (queues);
+   
   testDequeue (queues);
 
   std::cerr << "Adding an s to the 3rd and 4th queues.\n";
@@ -278,7 +281,7 @@ main (int argc, char *argv[])
 
   // you can comment out the following trycatch block to isolate
   // problems to the above tests (constructors, dequeues, and iterators).
-
+  
   try
     {
       const int MAX_NAME_LEN = 80;
@@ -488,6 +491,8 @@ main (int argc, char *argv[])
 
   LQueue_Node<char>::free_list_release();
   LQueue_Node<BadAssignment<char> >::free_list_release();
-
+    
+    std::cerr << "We are done with all tests" << std::endl;
+    
   return 0;	
 }

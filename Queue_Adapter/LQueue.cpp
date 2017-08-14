@@ -225,6 +225,7 @@ LQueue<T, LQUEUE_NODE>::is_full (void) const
         temp = temp->next_;
         ++count;
     }
+    std::cout << "count is" << count << "actual count is" << count_ << std::endl;
     return count == count_;
 }
 

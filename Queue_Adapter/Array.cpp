@@ -1,3 +1,17 @@
+double low = 0;
+double high = x;
+double mid = (low+high)/2.0;
+double val = pow(mid,n);
+while ( std::abs(val-x) > 0.001) {
+    if (val < x) {
+        low = mid;
+    } else {
+        high = mid;
+    }
+    mid = (low+high)/2;
+    val = pow(mid,n);
+}
+*/
 #ifndef ARRAY_CPP
 #define ARRAY_CPP
 

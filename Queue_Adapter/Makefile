@@ -1,6 +1,6 @@
 #############################################################################
 #
-#  makefile for AQueue-test
+#  makefile for adapter-test
 #
 #############################################################################
 #
@@ -11,10 +11,7 @@
 
 MAKEFILE	= Makefile
 CC		= g++
-CFILES		= LQueue-test.cpp LQueue.cpp AQueue.cpp Array.cpp
-HFILES		= LQueue.h AQueue.h Array.h
-LOFILES		= LQueue-test.o LQueue.o
-AOFILES		= AQueue-test.o AQueue.o Array.o
+TFILES		= LQueue.o STLQueue.o AQueue.o Array.o Queue.o adapter-test.o
 
 #############################################################################
 # Flags for Installation
@@ -22,33 +19,31 @@ AOFILES		= AQueue-test.o AQueue.o Array.o
 BINDIR		= .
 #############################################################################
 
-DFLAGS		= -g
+DFLAGS		= -ggdb
 IFLAGS          = 
 OPTFLAGS	=  # Enable this flag if compiler supports templates...
-LDFLAGS		=  
+LDFLAGS		= -ggdb
 CFLAGS		= $(IFLAGS) $(OPTFLAGS) $(DFLAGS)
+ARRAYS      = ../Arrays_And_Queues/
 
 #############################################################################
 # G++ directives
 #############################################################################
-.SUFFIXES: .cpp
+.SUFFIXES: .C .cpp
 .cpp.o:
 	$(CC) $(CFLAGS) -c $<
 #############################################################################
 
-all: LQueue-test AQueue-test
+all: adapter-test
 
-LQueue-test: $(LOFILES)
-	$(CC) $(LDFLAGS) $(LOFILES) -o $@
-
-AQueue-test: $(AOFILES)
-	$(CC) $(LDFLAGS) $(AOFILES) -o $@
+adapter-test: $(TFILES)
+	$(CC) $(LDFLAGS) $(TFILES) -o $@
 
 clean:
 	/bin/rm -f *.o *.out *~ core
 
 realclean: clean
-	/bin/rm -rf LQueue-test AQueue-test
+	/bin/rm -rf adapter-test
 
 depend:
 	g++dep -f $(MAKEFILE) $(CFILES)
@@ -56,10 +51,10 @@ depend:
 # DO NOT DELETE THIS LINE -- g++dep uses it.
 # DO NOT PUT ANYTHING AFTER THIS LINE, IT WILL GO AWAY.
 
-#Array.o: Array.cpp Array.h Array.inl
+Array.o: Array.cpp Array.h Array.inl
 LQueue.o : LQueue.cpp LQueue.h
-#AQueue.o : AQueue.cpp AQueue.h
-LQueue-test.o : LQueue-test.cpp LQueue.h LQueue.cpp
-#AQueue-test.o : AQueue-test.cpp AQueue.h AQueue.cpp Array.cpp Array.h
+STLQueue.o : STLQueue.h
+AQueue.o : AQueue.cpp AQueue.h
+adapter-test.o : adapter-test.cpp Queue.h Queue.cpp AQueue.h AQueue.cpp LQueue.h LQueue.cpp STLQueue.cpp
 
 # IF YOU PUT ANYTHING HERE IT WILL GO AWAY

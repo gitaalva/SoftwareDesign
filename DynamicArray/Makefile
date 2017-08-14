@@ -3,7 +3,7 @@ CXX		= g++
 CFILES		= main.cpp \
 		  Array.cpp 
 OFILES		= main.o Array.o
-DFLAGS		= -ggdb
+DFLAGS		= -g
 CFLAGS		= $(DFLAGS) # -DUSE_TEMPLATES -D__INLINE__ -DUSE_EXCEPTIONS
 
 #############################################################################
